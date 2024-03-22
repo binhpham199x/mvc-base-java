@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
 
 public class Game {
     public MyPanel panel;
-
     public Controller controller;
 
     public Game() {
@@ -21,7 +20,7 @@ public class Game {
         this.panel = new MyPanel(800, 600, Color.BLACK);
         this.panel.setGame(this);
 
-        KeyAdapter myInputListener = new MyKeyboardInput();
+        KeyAdapter myInputListener = new MyKeyboardInput(this.panel);
         this.panel.addKeyListener(myInputListener);
 
 
@@ -38,6 +37,9 @@ public class Game {
         frame.setLocationRelativeTo(null);
 
 
+    }
+    public void processKeyEvent(KeyEvent e){
+        this.controller.processKeyEvent(e);
     }
 
     public void start() {

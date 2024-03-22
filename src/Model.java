@@ -6,6 +6,7 @@ public class Model {
    public int y;
    public int width;
    public int height;
+   public Direction direction = Direction.RIGHT;
 
    public int xDirection = 1;
    public int yDirection = 1;
@@ -21,6 +22,20 @@ public class Model {
       this.color = color;
    }
 
+   public void move(int stepSize) {
+      switch (this.direction) {
+         case LEFT -> this.moveLeft(stepSize);
+         case RIGHT -> this.moveRight(stepSize);
+         case UP -> this.moveUp(stepSize);
+         case DOWN -> this.moveDown(stepSize);
+      }
+   }
+
+   public void changeDirection(Direction dir) {
+      this.direction = dir;
+   }
+
+
    public void moveRight(int stepSize) {
       this.x += stepSize;
    }
@@ -30,11 +45,11 @@ public class Model {
    }
 
    public void moveUp(int stepSize) {
-      this.x += stepSize;
+      this.y -= stepSize;
    }
 
    public void moveDown(int stepSize) {
-      this.x -= stepSize;
+      this.y += stepSize;
    }
 
 }
