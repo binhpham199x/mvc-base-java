@@ -18,16 +18,16 @@ public class Controller {
     }
 
     public void update() {
-        if (this.model.direction == 1)
+
+
+        if (this.model.xDirection == 1)
             this.model.moveRight(20);
 
-        if (this.model.direction == -1)
+        if (this.model.xDirection == -1)
             this.model.moveLeft(20);
 
         if (this.model.x >= 500 || this.model.x < 0)
-            this.model.direction *= -1;
-
-
+            this.model.xDirection *= -1;
 
     }
 }

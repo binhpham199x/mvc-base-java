@@ -8,6 +8,8 @@ public class MyPanel extends JPanel {
     public MyPanel(int width, int height, Color bgColor) {
         this.setPreferredSize(new Dimension(width, height));
 
+        this.setFocusable(true);
+
         this.setBackground(bgColor);
     }
 

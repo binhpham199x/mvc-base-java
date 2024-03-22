@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.sql.SQLOutput;
 import java.util.concurrent.TimeUnit;
 
@@ -12,10 +13,17 @@ public class Game {
         //        Creating game Objects
         this.controller = new Controller();
 
+        // GameModus1Controller
+        // GameModus2Controller
+
 
 //        Creating game Window
         this.panel = new MyPanel(800, 600, Color.BLACK);
         this.panel.setGame(this);
+
+        KeyAdapter myInputListener = new MyKeyboardInput();
+        this.panel.addKeyListener(myInputListener);
+
 
         JFrame frame = new JFrame();
 
@@ -34,12 +42,14 @@ public class Game {
 
     public void start() {
         int FPS = 60;
+
         int FPSCount = 0;
 
         long timePerFrame = TimeUnit.SECONDS.toNanos(1) / FPS;
 
 //        1 second = 1_000_000_000 nano second
         long timeStart = System.nanoTime();
+
         long countStart = System.nanoTime();
 
 

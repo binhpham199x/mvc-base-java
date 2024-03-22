@@ -10,5 +10,6 @@ public class View {
         g2.fillRect(model.x, model.y, model.width, model.height);
         g2.draw(rectangle);
 
+
     }
 }
